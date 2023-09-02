@@ -40,11 +40,12 @@ def main(user_sentence, cases):
     all_cases = [cases.positive_case_pattern, cases.negative_case_pattern]
     case_choice = return_match_case(all_cases, user_sentence)
     answer = excecute_cases_fn(cases, case_choice)
-    print(answer)
+    print(f"ELIZA: {answer}")
     
 if __name__ == "__main__":
     cases = AnswerCase()
-    user_sentence = "I am feeling sad today."
     while True:
+        user_sentence = input("User: (type `Stop conversation` to end conversation) ")
         main(user_sentence, cases)
-        break
+        if user_sentence == 'Stop conversation':
+            break
